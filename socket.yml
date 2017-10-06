@@ -1,0 +1,74 @@
+name: file-storage
+description: Storage files in a Data Class
+version: 0.0.1
+
+endpoints:
+  setup:
+    description: Setup Data Class for storage files
+    parameters:
+      className:
+        type: string
+        description: Class to setup
+    response:
+      success:
+        description: Success
+      fail:
+        exit_code: 400
+        description: Failed
+        parametes:
+          message:
+            type: string
+            example: Setup failed
+
+  upload:
+    description: Create Data Object and return URL for upload file
+    parameters:
+      className:
+        type: string
+        description: "Name of the created class"
+        example: "storage"
+      data:
+        type: object
+        description: Data attached to file eg. author, name, category
+        example: |
+          {
+            "name": "file.png",
+            "category": "pictures"
+          }
+    response:
+      success:
+        description: Success
+        parameters:
+          method:
+            type: string
+            description: HTTP method
+            example: PATCH
+          url:
+            type: url
+            description: Upload URL
+            example: https://api.syncano.io/v2/instances/file-storage/classes/documents/objects/254/?api_key=4g3g45hu39msmv21n234p1mdnjiu124hi1no2jnm
+      fail:
+        exit_code: 400
+        description: Failed
+        parametes:
+          message:
+            type: string
+            example: Upload failed. Try to setup class again.
+
+  get-upload-api-key:
+    description: Get API key for upload files
+    response:
+      success:
+        description: Success
+        parameters:
+          api_key:
+            type: string
+            description: API key
+            example: 4g3g45hu39msmv21n234p1mdnjiu124hi1no2jnm
+      fail:
+        exit_code: 400
+        description: Failed
+        parametes:
+          message:
+            type: string
+            example: API key not found
