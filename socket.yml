@@ -1,6 +1,6 @@
 name: file-storage
 description: Storage files in a Data Class
-version: 0.0.2
+version: 0.0.3
 endpoints:
   setup:
     description: Setup Data Class for storage files
