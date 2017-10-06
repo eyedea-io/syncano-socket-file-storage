@@ -2,7 +2,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
-    "syncano-server": "beta",
+    "syncano-server": "beta"
   },
   "scripts": {
     "test": "yarn && npm-run-all test:lint test:e2e:coverage",
