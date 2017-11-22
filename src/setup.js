@@ -5,7 +5,7 @@ export default (ctx) => {
   const {response} = Syncano(ctx)
 
   const rootUrl = `https://api.syncano.io/v2/instances/${ctx.meta.instance}`
-  const classRoot = `${rootUrl}/classes/${ctx.meta.className}`
+  const classRoot = `${rootUrl}/classes/${ctx.args.className}`
 
   createApiKeyIfNotExists()
     .then(() => (
